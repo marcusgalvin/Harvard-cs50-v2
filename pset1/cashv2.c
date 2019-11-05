@@ -1,29 +1,44 @@
 #include <stdio.h>
-#include <math.h>
 #include <cs50.h>
+#include <math.h>
 
-int main()
+int main(void)
 {
-  //declare change owed as an int
-  int cents_owed;
+  float dollars;
 
-  //use a do while loop and prompt user for the amt of change owed
   do
   {
-    float dollars_owed = get_float("Change owed: ");
-    //the round function is available through the <math.h> header
-    cents_owed = round(dollars_owed * 100);
-  } while (cents_owed <= 0);
+    dollars = get_float("Change owed: ");
+  } while (dollars < 0);
 
-  //using modulo you can determine how many coins can be owed per denomination of coin
-  //mod the amt of change the user input and then divide it by the amount of each coin (quarter, dime, nickle, penny)
+  int cents = round(dollars * 100);
+  //41 - 25 = 16
 
-  int quarters = cents_owed / 25;
-  int dimes = (cents_owed % 25) / 10;
-  int nickels = ((cents_owed % 25) % 10) / 5;
-  int pennies = ((cents_owed % 25) % 10) % 5;
+  int coins = 0;
 
-  //add all the rounded amounts together and you have the least number of EACH coins to return
+  while (cents >= 25)
+  {
+    cents -= 25;
+    coins++;
+  }
 
-  printf("%d\n", quarters + dimes + nickels + pennies);
+  while (cents >= 10)
+  {
+    cents -= 10;
+    coins++;
+  }
+
+  while (cents >= 5)
+  {
+    cents -= 5;
+    coins++;
+  }
+
+  while (cents >= 1)
+  {
+    cents -= 1;
+    coins++;
+  }
+
+  printf("minimum coins owed: %i\n", coins);
 }
