@@ -4,15 +4,16 @@
 
 int main(void)
 {
-  float dollars;
+  float changeOwed;
 
   do
   {
-    dollars = get_float("Change owed: ");
-  } while (dollars < 0);
+    //prompt user
+    changeOwed = get_float("Change owed: ");
+  } while (changeOwed < 0);
 
-  int cents = round(dollars * 100);
-  //41 - 25 = 16
+  //round() simply rounds up the float to the nearest int - from math.h header
+  int cents = round(changeOwed * 100);
 
   int coins = 0;
 
