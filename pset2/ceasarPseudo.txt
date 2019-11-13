@@ -1,0 +1,31 @@
+Ceasars Cipher Algorithm
+
+-Trying to work out how the math works here
+-Example:
+  key = 1
+  plaintext input = hello
+  plaintext[i] = h
+
+
+for (int i = 0; inputlength = strlen(plainText); i < inputlength; i++)
+{
+
+printf("%c%", (((plainText[i] + k) -97) % 26) +97);
+
+example problem:
+
+              (((h + 1) - 97) % 26) + 97)
+
+              "h = 104 on ASCII Table"
+                (((104 + 1)) - 97) % 26) + 97
+                (((105) - 97) % 26) + 97
+                (8 % 26) + 97
+                8 + 97
+                = 105
+
+                AND 105 = "i" on the ASCII Table
+
+
+}
+
+This works
