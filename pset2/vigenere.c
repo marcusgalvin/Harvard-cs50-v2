@@ -17,7 +17,7 @@ int main(int argc, string argv[])
 
   else
   {
-    // loop through the user inputed keyword and check if the charactered enetered are valid alphabet characters, else kill program
+    // loop through the user inputed keyword and check if the characters enetered are valid alphabet characters, else kill program
     // isalpha function ensures this
     string keyword = argv[1];
     for (int i = 0, n = strlen(keyword); i < n; i++)
@@ -31,4 +31,43 @@ int main(int argc, string argv[])
       }
     }
   }
+
+  // Store key as string, set keyLen to get the length of it
+  string key = argv[1];
+  int keyLen = strlen(key);
+
+  // Get the users input to encrypt
+  string test = get_string("test input")
+      string plaintext = get_string("plaintext: ");
+
+  // Loop through the length of plaintext
+  for (int i = 0, j = 0, plaintextlength = strlen(plaintext); i < plaintextlength; i++)
+  {
+    // Get key for this letter
+    int letterKey = tolower(key[j % keyLen]) - 'a';
+
+    // Keep case of letter
+    if (isupper(plaintext[i]))
+    {
+      // Get modulo number and add to appropriate case
+      printf("%c", 'A' + (plaintext[i] - 'A' + letterKey) % 26);
+
+      // Only increment j when used
+      j++;
+    }
+    else if (islower(plaintext[i]))
+    {
+      printf("%c", 'a' + (plaintext[i] - 'a' + letterKey) % 26);
+      j++;
+    }
+    else
+    {
+      // return unchanged
+      printf("%c", plaintext[i]);
+    }
+  }
+
+  printf("\n");
+
+  return 0;
 }
