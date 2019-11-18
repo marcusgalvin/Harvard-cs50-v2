@@ -17,7 +17,7 @@ int main(int argc, string argv[])
 
   else
   {
-    // loop through the user inputed keyword and check if the characters enetered are valid alphabet characters, else kill program
+    // loop through the user inputed keyword and check if the charactered enetered are valid alphabet characters, else kill program
     // isalpha function ensures this
     string keyword = argv[1];
     for (int i = 0, n = strlen(keyword); i < n; i++)
@@ -32,38 +32,40 @@ int main(int argc, string argv[])
     }
   }
 
-  // Store key as string, set keyLen to get the length of it
+  //get user input: plaintext
+  string plainText = get_string("plaintext: ");
+  printf("cipertext: ");
+
+  //the key = argv[1]
   string key = argv[1];
-  int keyLen = strlen(key);
+  //store the keys length as an int
+  int keyLength = strlen(key);
 
-  // Get the users input to encrypt
-  string test = get_string("test input")
-      string plaintext = get_string("plaintext: ");
+  //'a' = 65
+  //'A' = 97
 
-  // Loop through the length of plaintext
-  for (int i = 0, j = 0, plaintextlength = strlen(plaintext); i < plaintextlength; i++)
+  // Loop through the user's input: plaintext
+  for (int i = 0, j = 0, n = strlen(plainText); i < n; i++)
   {
     // Get key for this letter
-    int letterKey = tolower(key[j % keyLen]) - 'a';
+    int letterKeyIndex = tolower(key[j % keyLength]) - 'a';
 
-    // Keep case of letter
-    if (isupper(plaintext[i]))
+    // for uppercase
+    if (isupper(plainText[i]))
     {
-      // Get modulo number and add to appropriate case
-      printf("%c", 'A' + (plaintext[i] - 'A' + letterKey) % 26);
-
-      // Only increment j when used
+      printf("%c", 'A' + (plainText[i] - 'A' + letterKeyIndex) % 26);
       j++;
     }
-    else if (islower(plaintext[i]))
+    //for lower case
+    else if (islower(plainText[i]))
     {
-      printf("%c", 'a' + (plaintext[i] - 'a' + letterKey) % 26);
+      printf("%c", 'a' + (plainText[i] - 'a' + letterKeyIndex) % 26);
       j++;
     }
     else
     {
-      // return unchanged
-      printf("%c", plaintext[i]);
+      // else return plaintext non changed
+      printf("%c", plainText[i]);
     }
   }
 
