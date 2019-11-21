@@ -1,0 +1,23 @@
+Working out the Math for the vigenere cipher
+
+Example:
+plaintext: dog
+plaintext[i] = d
+key = b
+keyLength = 5
+
+keyIndex = 1
+
+('a' + (plaintext[i] - 'a' + keyIndex) % 26)
+
+97+ ( 100 - 97 + 1) %26
+
+  97 + (4 % 26)
+
+  97 + 4
+
+  101
+
+  101 = e on ASCII table
+
+  So the d in dog turns into an e, down one letter because b has a keyIndex of 1
