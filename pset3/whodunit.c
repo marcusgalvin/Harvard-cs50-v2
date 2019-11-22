@@ -11,4 +11,6 @@ int main(int argc, char *argv[])
     printf("Usage: copy infile outfile\n");
     return 1;
   }
+
+  ///bitmapfileheader
 }
