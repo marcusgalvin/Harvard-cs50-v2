@@ -11,7 +11,7 @@ WORD = 16
 
 ## What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
 
-TODO
+Ascii
 
 ## What's the difference between `bfSize` and `biSize`?
 
