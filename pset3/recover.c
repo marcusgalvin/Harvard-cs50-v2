@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  //remember file names
+  //remember file names, store infile pointer to memory address of argv[1]
   //store as a string
   char *infile = argv[1];
 
@@ -33,10 +33,14 @@ int main(int argc, char *argv[])
     return 2;
   }
 
+  //BYTE = 8 bits, buffer will store 518 bytes at once
   BYTE buffer[512];
+  //counter for the jpeg image files
   int imageCount = 0;
 
+  //declare an array called filename to give each jpeg a name of 8 chars
   char filename[8];
+  //points to the location of each jpeg file
   FILE *outptr = NULL;
 
   while (true)
@@ -69,12 +73,17 @@ int main(int argc, char *argv[])
     if (jpegFound)
     {
       //test jpeg
-      //sprintf function writes the data in the string pointed to by str and returns the number of characters written to str
+      //sprintf function writes the data in the string pointed to by str and returns the number of characters written to str, aka gives name
+      //%3di, the % means to print the variable here, use at least 3 spaces, and the i means the variable is an int
+      //image count is whats looping, and increasing/iterating
+
       sprintf(filename, "%03i.jpg", imageCount);
+      //open a new file and give it is new filename
       outptr = fopen(filename, "w");
     }
 
-    //write into file anytime one is open
+    //write data into file anytime one is open
+    //remeber that buffer points to the memeory address and outptr is the pointer to the object we are writing out to
     if (outptr != NULL)
     {
       fwrite(buffer, sizeof(BYTE), bytesRead, outptr);
@@ -87,6 +96,6 @@ int main(int argc, char *argv[])
   //close the infile aswell
   fclose(inptr);
 
-  //done, rtune 0
+  //done, return 0
   return 0;
 }
