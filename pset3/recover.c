@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     return 2;
   }
 
-  //BYTE = 8 bits, buffer will store 518 bytes at once
+  //BYTE = 8 bits, buffer will store 512 bytes at once
   BYTE buffer[512];
   //counter for the jpeg image files
   int imageCount = 0;
