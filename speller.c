@@ -17,7 +17,7 @@ typedef struct node
 }
 node;
 
-// Represents a hash table
+// Represents a hash table node
 node *hashtable[N];
 
 // Hashes word to a number between 0 and 25, inclusive, based on its first letter
